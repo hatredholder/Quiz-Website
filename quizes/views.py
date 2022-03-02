@@ -5,15 +5,21 @@ from django.views.generic import ListView
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from results.models import Result
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
-class QuizListView(ListView):
+class QuizListView(LoginRequiredMixin, ListView):
     model = Quiz
     template_name = 'quizes/main.html'
+    login_url = 'authentication/login'
+    redirect_field_name = ''
 
+@login_required(login_url="authentication:login-view")
 def quiz_view(request, pk):
     quiz = Quiz.objects.get(pk=pk)
     return render(request, 'quizes/quiz.html', {'obj':quiz})
 
+@login_required(login_url="authentication:login-view")
 def quiz_data_view(request, pk):
     quiz = Quiz.objects.get(pk=pk)
     questions = []
@@ -27,6 +33,7 @@ def quiz_data_view(request, pk):
         'time':quiz.time
     })
 
+@login_required(login_url="authentication:login-view")
 def save_quiz_view(request, pk):
     requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
     if not requested_html:

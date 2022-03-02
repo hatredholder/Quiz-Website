@@ -12,15 +12,10 @@
         <h2>Login</h2>
 
         <div>
-            <label class="mr-3">{{form.username.label}}:</label>
-            {{form.username}}
-        </div>
-        <div>
-            <label class="mr-3">{{form.password.label}}:</label>
-            {{form.password}}
+            {{form.as_p}}
         </div>
         <input class="button mt-3" type='submit' value='Login'>
     </form>
-    <p>Don't have an account yet? <a href="{% url 'quizes:register-view'%}">Register</a></p>
+    <p>Don't have an account yet? <a href="{% url 'authentication:register-view'%}">Register</a></p>
 </div>
 {% endblock content %}
