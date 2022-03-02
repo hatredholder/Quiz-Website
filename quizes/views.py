@@ -28,7 +28,6 @@ def quiz_data_view(request, pk):
     })
 
 def save_quiz_view(request, pk):
-    # print(request.POST)
     requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
     if not requested_html:
         questions = []
