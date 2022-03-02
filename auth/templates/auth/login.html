@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Login
+{% endblock title %}
+
+{% block content %}
+<div class="d-flex justify-content-center">
+    <form class="center-block" method="POST">
+        {% csrf_token %}
+        <h2>Login</h2>
+
+        <div>
+            <label class="mr-3">{{form.username.label}}:</label>
+            {{form.username}}
+        </div>
+        <div>
+            <label class="mr-3">{{form.password.label}}:</label>
+            {{form.password}}
+        </div>
+        <input class="button mt-3" type='submit' value='Login'>
+    </form>
+    <p>Don't have an account yet? <a href="{% url 'quizes:register-view'%}">Register</a></p>
+</div>
+{% endblock content %}

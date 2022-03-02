@@ -30,9 +30,9 @@ Home
 
 <div class="h1 justify-content-center">
     Quizes Available
-    <button type="button" class="btn btn-danger btn-lg mb-1 float-right">
+    <a href="{% url 'quizes:main-view' %}"  class="btn btn-danger btn-lg mb-1 float-right">
         Logout
-    </button> 
+    </a>
 </div>
 <hr>
 {% for obj in object_list %}
