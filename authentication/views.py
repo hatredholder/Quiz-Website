@@ -4,6 +4,8 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import MyUserCreationForm
 
 def register_page(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = MyUserCreationForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
@@ -16,6 +18,8 @@ def register_page(request):
     return render(request, 'authentication/register.html', {'form':form})
 
 def login_page(request):
+    if request.user.is_authenticated:
+        return redirect('/')
     form = AuthenticationForm()
     if request.method == "POST":
         username = request.POST.get("username")
