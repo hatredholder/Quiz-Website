@@ -9,6 +9,8 @@ Add a login/registration system;
 
 Make the timer stop after submitting results;
 
+# Preview:
+
 ![quiz_website_1](https://user-images.githubusercontent.com/86254474/156938033-628f03aa-1f46-40a4-9ce7-22fcc68f9dc3.png)
 
 ![quiz_website_2](https://user-images.githubusercontent.com/86254474/156938039-c1445738-e9ba-4c91-a9cf-16c0ec1a066d.png)
