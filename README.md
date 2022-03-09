@@ -9,6 +9,8 @@ Add a login/registration system;
 
 Create a quiz creating system;
 
+Add a delete quiz button;
+
 Make the timer stop after submitting results;
 
 # Preview:
