@@ -7,6 +7,8 @@ Simple Quiz Website with a timer on each quiz.
 Add a login/registration system;
 ✓ Done (02.03.22)
 
+Create a quiz creating system;
+
 Make the timer stop after submitting results;
 
 # Preview:
