@@ -16,8 +16,9 @@ Make the timer stop after submitting results;
 
 # Preview:
 
-![quiz_website_1](https://user-images.githubusercontent.com/86254474/156938033-628f03aa-1f46-40a4-9ce7-22fcc68f9dc3.png)
+![quiz_1](https://user-images.githubusercontent.com/86254474/159009416-0d851810-d2dc-402b-8978-48c3d246dba2.png)
 
-![quiz_website_2](https://user-images.githubusercontent.com/86254474/156938039-c1445738-e9ba-4c91-a9cf-16c0ec1a066d.png)
+![quiz_2](https://user-images.githubusercontent.com/86254474/159009421-5a0cfcbb-0d53-45fe-b694-8e2cd1a86d77.png)
 
-![quiz_website_3](https://user-images.githubusercontent.com/86254474/156938041-2e7681f3-7056-408a-8ce6-4bf2f3553c31.png)
+![quiz_3](https://user-images.githubusercontent.com/86254474/159009428-95d1f382-ffaa-4490-8721-e4d46b92179b.png)
+
