@@ -28,27 +28,36 @@ Home
     </div>
 </div>
 
-<div class="h1 justify-content-center">
-    Quizes Available
-    <a href="{% url 'authentication:logout-view' %}"  class="btn btn-danger btn-lg mb-1 float-right">
+<div class="justify-content-center">
+    Quizes Available: {{quiz_count}}
+    <a href="{% url 'authentication:logout-view' %}"  class="btn btn-dark btn-lg mb-1 float-right">
         Logout
     </a>
+    <div>
+        <h1>Quizes:</h1>
+    </div>
 </div>
 <hr>
-{% for obj in object_list %}
-    <button 
-        class="btn btn-secondary modal-button"
-        data-pk="{{obj.pk}}"
-        data-quiz="{{obj.name}}"
-        data-questions="{{obj.number_of_questions}}"
-        data-difficulty="{{obj.difficulty}}"
-        data-time="{{obj.time}}"
-        data-pass="{{obj.required_score_to_pass}}"
-        data-toggle="modal" 
-        data-target="#quizStartModal">
-        {{obj.name}}
-    </button>
-    <br>
-    <hr>
-{% endfor %}
+
+    {% for obj in object_list %}
+        <h5>#{{obj.id}}</h5>
+        <h4>{{obj.name}}</h4>
+        <button 
+            class="btn btn-success modal-button"
+            data-pk="{{obj.pk}}"
+            data-quiz="{{obj.name}}"
+            data-questions="{{obj.number_of_questions}}"
+            data-difficulty="{{obj.difficulty}}"
+            data-time="{{obj.time}}"
+            data-pass="{{obj.required_score_to_pass}}"
+            data-toggle="modal" 
+            data-target="#quizStartModal">
+            Click to see more info
+        </button>
+        <a href="{% url 'quizes:quiz-delete-view' obj.id %}"  class="btn btn-danger btn-sm mb-1 float-right">
+            Delete Quiz
+        </a>
+        <br>
+        <hr>
+    {% endfor %}
 {% endblock content %}

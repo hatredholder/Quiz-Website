@@ -2,6 +2,7 @@ import re
 from django.shortcuts import render
 from .models import Quiz
 from django.views.generic import ListView
+from django.views.generic.edit import DeleteView
 from django.http import JsonResponse
 from questions.models import Question, Answer
 from results.models import Result
@@ -13,6 +14,16 @@ class QuizListView(LoginRequiredMixin, ListView):
     template_name = 'quizes/main.html'
     login_url = 'authentication/login'
     redirect_field_name = ''
+
+    def get_context_data(self, **kwargs):          
+        context = super().get_context_data(**kwargs)                     
+        quiz_count = Quiz.objects.all().count()
+        context["quiz_count"] = quiz_count
+        return context
+
+class QuizDeleteView(LoginRequiredMixin, DeleteView):
+    model = Quiz
+    success_url = '/'
 
 @login_required(login_url="authentication:login-view")
 def quiz_view(request, pk):
