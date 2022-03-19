@@ -9,24 +9,6 @@ Home
 {% endblock title %}
 
 {% block content %}
-<!-- Modal -->
-<div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Test Details</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body" id="modal-body-confirm"></div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" id="start-button" class="btn btn-success">Start the Test</button>
-        </div>
-        </div>
-    </div>
-</div>
 
 <div class="justify-content-center">
     Quizes Available: {{quiz_count}}
@@ -42,8 +24,7 @@ Home
     </div>
 </div>
 <hr>
-
-{% for obj in object_list %}
+    {% for obj in object_list %}
     <h5>#{{forloop.counter}}</h5>
     <h4>{{obj.name}}</h4>
     <button 
@@ -58,10 +39,52 @@ Home
         data-target="#quizStartModal">
         Click to see more info
     </button>
-    <a href="{% url 'quizes:quiz-delete-view' obj.id %}"  class="btn btn-danger btn-sm mb-1 float-right">
+    <button data-toggle="modal" data-target="#quizDeleteModal" class="btn btn-danger btn-sm mb-1 float-right">
         Delete Quiz
-    </a>
+    </button>
     <br>
-    <hr>
+<hr>
+
+<!-- Quiz Info Modal -->
+<div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Test Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-body-confirm"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" id="start-button" class="btn btn-success">Start the Test</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quiz Delete Modal -->
+<div class="modal fade" id="quizDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Delete the Quiz</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-body-confirm">
+            Are you sure you want to delete this quiz?
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-light" data-dismiss="modal">Nevermind</button>
+            <form id="my_form" method="post" action="{% url 'quizes:quiz-delete-view' obj.pk %}">
+                {% csrf_token %}
+            </form>
+            <a onclick="document.getElementById('my_form').submit();"><button class="btn btn-dark">Yes, I'm sure</button></a>
+        </div>
+        </div>
+    </div>
+</div>
 {% endfor %}
 {% endblock content %}
