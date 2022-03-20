@@ -13,6 +13,8 @@ Add a delete quiz button;
 Add a login/registration system;
 ✓ Done (02.03.22)
 
+Create a quiz editing system;
+
 Make the timer stop after submitting results;
 
 # Preview:
