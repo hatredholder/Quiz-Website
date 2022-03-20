@@ -3,6 +3,13 @@
 
 {% block scripts %}
     <script src="{% static 'quizes/main.js' %}" defer></script>
+    <script type="text/javascript">
+        function quizCreateFunction(url){
+            $('#quizCreateModal').load(url, function(){
+                $(this).modal('show');
+            })
+        }
+    </script>
 {% endblock scripts %}
 {% block title %}
 Home
@@ -16,9 +23,9 @@ Home
     <a href="{% url 'authentication:logout-view' %}"  class="btn btn-dark btn-lg mb-1 float-right">
         Logout
     </a>
-    <a href="{% url 'quizes:quiz-create-view' %}"  class="btn btn-info btn-lg mr-4 float-right">
+    <button onclick="quizCreateFunction('{% url 'quizes:quiz-create-view' %}')"  class="btn btn-info btn-lg mr-4 float-right">
         Create a Quiz
-    </a>
+    </button>
     <div>
         <h1>Quizes:</h1>
     </div>
@@ -62,6 +69,12 @@ Home
         </div>
     </div>
 </div>
+
+<!-- Quiz Create Modal -->
+<div class="modal fade" id="quizCreateModal" role="dialog">
+
+</div>
+
 
 <!-- Quiz Delete Modal -->
 <div class="modal fade" id="quizDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

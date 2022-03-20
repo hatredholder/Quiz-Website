@@ -23,6 +23,7 @@ class QuizListView(LoginRequiredMixin, ListView):
 
 class QuizCreateView(LoginRequiredMixin, CreateView):
     model = Quiz
+    template_name = 'quizes/quiz_modal_form.html'
     fields = ['name', 
     'topic', 
     'number_of_questions', 
