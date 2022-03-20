@@ -1,5 +1,6 @@
 import re
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from quizes.forms import QuizForm
 from .models import Quiz
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import DeleteView
@@ -14,12 +15,22 @@ class QuizListView(LoginRequiredMixin, ListView):
     template_name = 'quizes/main.html'
     login_url = 'authentication/login'
     redirect_field_name = ''
+    form_class = QuizForm
 
     def get_context_data(self, **kwargs):          
         context = super().get_context_data(**kwargs)                     
         quiz_count = Quiz.objects.all().count()
         context["quiz_count"] = quiz_count
         return context
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/')
+        else:
+            form = self.form_class()
+            return render(request, self.template_name, self.get_context_data())
 
 class QuizCreateView(LoginRequiredMixin, CreateView):
     model = Quiz
