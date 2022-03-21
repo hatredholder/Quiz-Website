@@ -1,6 +1,6 @@
 import re
 from django.shortcuts import redirect, render
-from quizes.forms import QuizForm
+from quizes.forms import QuizForm, QuestionForm
 from .models import Quiz
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import DeleteView
@@ -35,20 +35,39 @@ class QuizListView(LoginRequiredMixin, ListView):
 class QuizCreateView(LoginRequiredMixin, CreateView):
     model = Quiz
     template_name = 'quizes/quiz_modal_form.html'
-    fields = ['name', 
-    'topic', 
-    'number_of_questions', 
-    'time', 
-    'required_score_to_pass', 
-    'difficulty'
+    fields = [
+        'name', 
+        'topic', 
+        'number_of_questions', 
+        'time', 
+        'required_score_to_pass', 
+        'difficulty'
     ]
     success_url = '/'
+
+class QuestionCreateView(LoginRequiredMixin, CreateView):
+    model = Question
+    template_name = 'quizes/question_modal_form.html'
+    fields = [
+        'text'
+    ]
+    success_url = '/'
+
+class AnswerCreateView(LoginRequiredMixin, CreateView):
+    model = Answer
+    template_name = 'quizes/answer_modal_form.html'
+    fields = [
+        'text', 
+        'correct', 
+        'question'
+    ]
+    success_url = '/'
+
 
 class QuizDeleteView(LoginRequiredMixin, DeleteView):
     model = Quiz
     success_url = '/'
     
-
 @login_required(login_url="authentication:login-view")
 def quiz_view(request, pk):
     quiz = Quiz.objects.get(pk=pk)
