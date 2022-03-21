@@ -65,6 +65,8 @@
 </button>
 <br>
 <hr>
+{% endfor %}
+
 
 <!-- Load Modal from Other Templates -->
 <div class="modal fade" id="customModal" role="dialog">
@@ -103,7 +105,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light" data-dismiss="modal">Nevermind</button>
-            <form id="my_delete_form" method="post" action="{% url 'quizes:quiz-delete-view' obj.pk %}">
+            <form id="my_delete_form" method="post" action="">
                 {% csrf_token %}
             </form>
             <a onclick="document.getElementById('my_delete_form').submit();"><button class="btn btn-dark">Yes, I'm sure</button></a>
@@ -112,5 +114,4 @@
     </div>
 </div>
 
-{% endfor %}
 {% endblock content %}
