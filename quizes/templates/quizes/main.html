@@ -9,6 +9,9 @@
                 $(this).modal('show');
             })
         }
+        $(document).on('click', '#my_delete_button', () => {
+            document.getElementById("my_delete_form").action = document.querySelector('#my_delete_button').href
+        });
     </script>
 {% endblock scripts %}
 
@@ -74,9 +77,9 @@
     data-target="#quizStartModal">
     Click to see more info
 </button>
-<button data-toggle="modal" data-target="#quizDeleteModal" class="btn btn-danger btn-sm mb-1 float-right">
+<a href="{% url 'quizes:quiz-delete-view' obj.pk %}" id="my_delete_button" data-toggle="modal" data-target="#quizDeleteModal" class="btn btn-danger btn-sm mb-1 float-right">
     Delete Quiz
-</button>
+</a>
 <button onclick="customModalFunction('{% url 'quizes:answer-create-view' %}')" class="btn btn-secondary btn-sm mr-4 float-right">
     Add Answers
 </button>
@@ -102,10 +105,10 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-light" data-dismiss="modal">Nevermind</button>
-            <form id="my_form" method="post" action="{% url 'quizes:quiz-delete-view' obj.pk %}">
+            <form id="my_delete_form" method="post" action="{% url 'quizes:quiz-delete-view' obj.pk %}">
                 {% csrf_token %}
             </form>
-            <a onclick="document.getElementById('my_form').submit();"><button class="btn btn-dark">Yes, I'm sure</button></a>
+            <a onclick="document.getElementById('my_delete_form').submit();"><button class="btn btn-dark">Yes, I'm sure</button></a>
         </div>
         </div>
     </div>
