@@ -21,6 +21,7 @@
 
 {% block content %}
 
+<!-- Basic Info -->
 <div class="justify-content-center">
     Quizes Available: {{quiz_count}}
 
@@ -35,30 +36,6 @@
     </div>
 </div>
 <hr>
-
-
-<!-- Load Modal from Other Templates -->
-<div class="modal fade" id="customModal" role="dialog">
-</div>
-
-
-<!-- Quiz Info Modal -->
-<div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Test Details</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </div>
-        <div class="modal-body" id="modal-body-confirm"></div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            <button type="button" id="start-button" class="btn btn-success">Start the Test</button>
-        </div>
-        </div>
-    </div>
-</div>
 
 
 <!-- Quizes -->
@@ -89,6 +66,27 @@
 <br>
 <hr>
 
+<!-- Load Modal from Other Templates -->
+<div class="modal fade" id="customModal" role="dialog">
+</div>
+
+<!-- Quiz Info Modal -->
+<div class="modal fade" id="quizStartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Test Details</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body" id="modal-body-confirm"></div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="button" id="start-button" class="btn btn-success">Start the Test</button>
+        </div>
+        </div>
+    </div>
+</div>
 
 <!-- Quiz Delete Modal -->
 <div class="modal fade" id="quizDeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -113,5 +111,6 @@
         </div>
     </div>
 </div>
+
 {% endfor %}
 {% endblock content %}
