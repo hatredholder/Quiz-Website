@@ -9,9 +9,6 @@
                 $(this).modal('show');
             })
         }
-        $(document).on('click', '#my_delete_button', () => {
-            document.getElementById("my_delete_form").action = document.querySelector('#my_delete_button').href
-        });
     </script>
 {% endblock scripts %}
 
@@ -53,7 +50,7 @@
     data-target="#quizStartModal">
     Click to see more info
 </button>
-<a href="{% url 'quizes:quiz-delete-view' obj.pk %}" id="my_delete_button" data-toggle="modal" data-target="#quizDeleteModal-{{obj.id}}" class="btn btn-danger btn-sm mb-1 float-right">
+<a href="{% url 'quizes:quiz-delete-view' obj.pk %}" id="my_delete_button" class="btn btn-danger btn-sm mb-1 float-right">
     Delete Quiz
 </a>
 <button onclick="customModalFunction('{% url 'quizes:answer-create-view' %}')" class="btn btn-secondary btn-sm mr-4 float-right">
