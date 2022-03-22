@@ -53,38 +53,14 @@
 <a href="{% url 'quizes:quiz-delete-view' obj.pk %}" id="my_delete_button" class="btn btn-danger btn-sm mb-1 float-right">
     Delete Quiz
 </a>
-<button onclick="customModalFunction('{% url 'quizes:answer-create-view' %}')" class="btn btn-secondary btn-sm mr-4 float-right">
+<a href="{% url 'quizes:answer-create-view' %}" class="btn btn-secondary btn-sm mr-4 float-right">
     Add Answers
-</button>
-<button onclick="customModalFunction('{% url 'quizes:question-create-view' %}')" class="btn btn-primary btn-sm mr-4 float-right">
+</a>
+<a href="{% url 'quizes:question-create-view' obj.pk %}" class="btn btn-primary btn-sm mr-4 float-right">
     Add Questions
-</button>
+</a>
 <br>
 <hr>
-
-<!-- Quiz Delete Modal -->
-<div class="modal fade" id="quizDeleteModal-{{obj.id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Delete the Quiz</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </div>
-        <div class="modal-body" id="modal-body-confirm">
-            Are you sure you want to delete this quiz?
-
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-light" data-dismiss="modal">Nevermind</button>
-            <form id="my_delete_form" method="post" action="">
-                {% csrf_token %}
-            </form>
-            <a onclick="document.getElementById('my_delete_form').submit();"><button class="btn btn-dark">Yes, I'm sure</button></a>
-        </div>
-        </div>
-    </div>
-</div>
 
 {% endfor %}
 

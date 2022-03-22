@@ -1,6 +1,6 @@
 import re
 from django.shortcuts import redirect, render
-from quizes.forms import QuizForm, QuestionForm
+from quizes.forms import QuizForm, QuestionForm, AnswerForm
 from .models import Quiz
 from django.views.generic import ListView, CreateView
 from django.views.generic.edit import DeleteView
@@ -45,13 +45,19 @@ class QuizCreateView(LoginRequiredMixin, CreateView):
     ]
     success_url = '/'
 
-class QuestionCreateView(LoginRequiredMixin, CreateView):
-    model = Question
-    template_name = 'quizes/question_modal_form.html'
-    fields = [
-        'text'
-    ]
-    success_url = '/'
+def question_create_view(request, pk):
+    q = Quiz.objects.get(pk=pk)
+    form = QuestionForm(request.POST)
+
+    if request.method == 'POST':
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.quiz = q
+            form.save()
+            form = QuestionForm()
+            return redirect('/')
+    form = QuestionForm()
+    return render(request, 'quizes/question_modal_form.html', {'form':form})
 
 class AnswerCreateView(LoginRequiredMixin, CreateView):
     model = Answer
@@ -89,8 +95,9 @@ def quiz_data_view(request, pk):
 
 @login_required(login_url="authentication:login-view")
 def save_quiz_view(request, pk):
-    requested_html = re.search(r'^text/html', request.META.get('HTTP_ACCEPT'))
-    if not requested_html:
+    print(request.META.get('HTTP_ACCEPT'))
+    is_ajax = request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
+    if is_ajax:
         questions = []
         data = request.POST
         data_ = dict(data.lists())
@@ -100,8 +107,9 @@ def save_quiz_view(request, pk):
         for k in data_.keys():
             print('key: ', k)
             question = Question.objects.get(text=k)
+            print("question", question)
             questions.append(question)
-        print(questions)
+        print("questions", questions)
 
         user = request.user
         quiz = Quiz.objects.get(pk=pk)

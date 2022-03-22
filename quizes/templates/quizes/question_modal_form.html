@@ -1,20 +1,14 @@
-<div class='modal-dialog modal-lg' role='document'>
-    <div class='modal-content'>
-        <div class='modal-header'>
-            <h2 class='modal-title'>Create a new Question</h2>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <form action='' method='POST'> 
-            {% csrf_token %}
-            <div class='modal-body'>
-                {{ form.as_p }}
-            </div>
-            <div class='modal-footer'>
-                <button class='btn btn-danger' type='button' data-dismiss='modal'>Cancel</button>
-                <button class='btn btn-primary' type='submit'>Submit</button>
-            </div>
-        </form>
-    </div>
-</div>
+{% extends 'base.html' %}
+{% block title %}
+Add a new Question
+{% endblock title %}
+
+{% block content %}
+<h2 class='modal-title'>Create a new Question</h2>
+<form action='' method='POST'> 
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class='btn btn-link' type='button' onclick="window.history.go(-1);" value="Cancel"></input>
+    <input class='btn btn-primary' type='submit'></input>
+</form>
+{% endblock content %}
