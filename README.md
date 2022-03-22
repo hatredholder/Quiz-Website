@@ -4,6 +4,9 @@ Simple Quiz Website with a timer on each quiz.
 
 # To do/to add:
 
+Create a quiz editing system;
+✓ Done (22.03.22)
+
 Create a quiz creating system;
 ✓ Done (20.03.22)
 
@@ -12,8 +15,6 @@ Add a delete quiz button;
 
 Add a login/registration system;
 ✓ Done (02.03.22)
-
-Create a quiz editing system;
 
 Make the timer stop after submitting results;
 
