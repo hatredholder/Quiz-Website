@@ -1,6 +1,7 @@
 # Quiz-Website
 
 Simple Quiz Website with a timer on each quiz.
+Made with Django 4.0, JS.
 
 # To do/to add:
 
