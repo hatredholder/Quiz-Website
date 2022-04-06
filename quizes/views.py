@@ -17,20 +17,19 @@ class QuizListView(LoginRequiredMixin, ListView):
     redirect_field_name = ''
     form_class = QuizForm
 
-    def get_context_data(self, **kwargs):          
-        context = super().get_context_data(**kwargs)                     
-        quiz_count = Quiz.objects.all().count()
-        context["quiz_count"] = quiz_count
-        return context
-
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
             return redirect('/')
         else:
-            form = self.form_class()
-            return render(request, self.template_name, self.get_context_data())
+            return redirect('/')
+
+    def get_context_data(self, **kwargs):          
+        context = super().get_context_data(**kwargs)                     
+        quiz_count = Quiz.objects.all().count()
+        context["quiz_count"] = quiz_count
+        return context
 
 class QuizCreateView(LoginRequiredMixin, CreateView):
     model = Quiz
@@ -53,6 +52,7 @@ def question_create_view(request, pk):
         if form.is_valid():
             form = form.save(commit=False)
             form.quiz = q
+            print(form)
             form.save()
             form = QuestionForm()
             return redirect('/')
