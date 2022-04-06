@@ -1,6 +1,8 @@
 # Quiz-Website
 
-Simple Quiz Website with a timer on each quiz.
+Simple Quiz Website with a timer on each quiz.\
+
+Functionality: Add a Quiz; Add a Question to a Quiz; Add an Answer to a Question; Delete a Quiz;
 
 Frontend: CSS, Bootstrap 4.5.
 
