@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %} Logout {% endblock title%}
+
+{% block content %}
+<h1>Logout</h1>
+
+<p>Are you sure you want to sign out?</p>
+
+<form method="post" action="{% url 'authentication:logout-view' %}">
+  {% csrf_token %}
+  <input class="ui button" 
+         type="button" value="Cancel" 
+         onclick="window.history.go(-1);"/>
+  <button class="ui button negative"type="submit">Sign Out</button>
+</form>
+{% endblock %}

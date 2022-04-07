@@ -29,9 +29,9 @@ def login_page(request):
             login(request, user)
             return redirect("/")
         else:
-            return redirect("authentication/login/")
+            return redirect("authentication:login-view")
     return render(request, "authentication/login.html", {'form':form})
 
 def logout_page(request):
     logout(request)
-    return redirect('/')
+    return redirect('authentication:login-view')

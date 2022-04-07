@@ -144,3 +144,6 @@ def save_quiz_view(request, pk):
             return JsonResponse({'passed': True, 'score': score_, 'results': results})
         else:
             return JsonResponse({'passed': False, 'score': score_, 'results': results})
+
+def logout_view(request):
+    return render(request, 'quizes/logout_confirm.html')

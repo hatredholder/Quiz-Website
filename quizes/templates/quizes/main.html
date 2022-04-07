@@ -21,7 +21,7 @@
 <!-- Basic Info -->
 <div class="justify-content-center">
     Quizes Available: {{quiz_count}}
-    <a href="{% url 'authentication:logout-view' %}"  class="btn btn-dark btn-lg mb-1 float-right">
+    <a href="{% url 'quizes:logout-view' %}"  class="btn btn-dark btn-lg mb-1 float-right">
         Logout
     </a>
     <button onclick="customModalFunction('{% url 'quizes:quiz-create-view' %}')"  class="btn btn-info btn-lg mr-4 float-right">

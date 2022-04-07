@@ -8,12 +8,14 @@ from .views import (
     quiz_data_view,
     save_quiz_view,
     question_create_view,
+    logout_view
 )
 
 app_name = 'quizes'
 
 urlpatterns = [
     path('', QuizListView.as_view(), name='main-view'),
+    path('logout', logout_view, name='logout-view'),
     path('createquiz/', QuizCreateView.as_view(), name='quiz-create-view'),
     path('<pk>/createquestion/', question_create_view, name='question-create-view'),
     path('createanswer/', AnswerCreateView.as_view(), name='answer-create-view'),
