@@ -9,9 +9,8 @@
 
 <form method="post" action="{% url 'authentication:logout-view' %}">
   {% csrf_token %}
-  <input class="ui button" 
-         type="button" value="Cancel" 
+  <input type="button" value="Cancel" 
          onclick="window.history.go(-1);"/>
-  <button class="ui button negative"type="submit">Sign Out</button>
+  <button type="submit">Sign Out</button>
 </form>
 {% endblock %}
