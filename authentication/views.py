@@ -18,6 +18,7 @@ def register_page(request):
     return render(request, 'authentication/register.html', {'form':form})
 
 def login_page(request):
+    
     if request.user.is_authenticated:
         return redirect('/')
     form = AuthenticationForm()
@@ -30,7 +31,8 @@ def login_page(request):
             return redirect("/")
         else:
             return redirect("authentication:login-view")
-    return render(request, "authentication/login.html", {'form':form})
+    context = {'form':form} 
+    return render(request, "authentication/login.html", context)
 
 def logout_page(request):
     logout(request)
