@@ -8,6 +8,8 @@ Frontend: CSS, Bootstrap 4.5.
 
 Backend: Django 4.0, JS.
 
+Database: PostgreSQL.
+
 # To do/to add:
 
 Create a quiz editing system;
