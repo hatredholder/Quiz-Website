@@ -22,7 +22,7 @@ Add a delete quiz button;
 ✓ Done (18.03.22)
 
 Add a login/registration system;
-✓ Done (02.03.22)
+✓ Done (03.03.22)
 
 Make the timer stop after submitting results;
 
