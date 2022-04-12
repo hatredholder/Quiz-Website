@@ -21,7 +21,7 @@ Create a quiz creating system;
 Add a delete quiz button;
 ✓ Done (18.03.22)
 
-Add a login/registration system;
+Add a authentication system;
 ✓ Done (03.03.22)
 
 Make the timer stop after submitting results;
