@@ -10,7 +10,7 @@ Backend: Django 4.0, JS.
 
 Database: PostgreSQL.
 
-# To do/to add:
+# To Do/To Add:
 
 Create a quiz editing system;
 ✓ Done (22.03.22)
