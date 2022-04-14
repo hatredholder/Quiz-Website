@@ -1,4 +1,4 @@
-# Quiz-Website
+# Quiz Website
 
 Simple Quiz Website with a timer on each quiz.
 
