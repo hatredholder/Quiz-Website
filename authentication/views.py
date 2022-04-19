@@ -4,8 +4,10 @@ from django.contrib.auth.forms import AuthenticationForm
 from .forms import MyUserCreationForm
 
 def register_page(request):
+
     if request.user.is_authenticated:
         return redirect('/')
+
     form = MyUserCreationForm(request.POST)
     if request.method == "POST":
         if form.is_valid():
@@ -21,6 +23,7 @@ def login_page(request):
     
     if request.user.is_authenticated:
         return redirect('/')
+
     form = AuthenticationForm()
     if request.method == "POST":
         username = request.POST.get("username")
@@ -29,8 +32,10 @@ def login_page(request):
         if user is not None:
             login(request, user)
             return redirect("/")
+
         else:
             return redirect("authentication:login-view")
+            
     context = {'form':form} 
     return render(request, "authentication/login.html", context)
 

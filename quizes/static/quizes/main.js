@@ -11,7 +11,8 @@ modalBtns.forEach(modalBtn=> modalBtn.addEventListener('click', ()=>{
     const scoreToPass = modalBtn.getAttribute('data-pass')
     const time = modalBtn.getAttribute('data-time')
 
-    modalBody.innerHTML = `
+    modalBody.innerHTML = 
+    `
         <div class="h5 mb-3">
             Are you sure you want to begin "<b>${name}</b>"?
         </div>
