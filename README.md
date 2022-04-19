@@ -1,6 +1,6 @@
-# Quiz-Website
+# Quiz Website
 
-Simple Quiz Website with a timer on each quiz.\
+Simple Quiz Website with a timer on each quiz.
 
 Functionality: Add a Quiz; Add a Question to a Quiz; Add an Answer to a Question; Delete a Quiz;
 
@@ -8,7 +8,9 @@ Frontend: CSS, Bootstrap 4.5.
 
 Backend: Django 4.0, JS.
 
-# To do/to add:
+Database: PostgreSQL.
+
+# To Do/To Add:
 
 Create a quiz editing system;
 ✓ Done (22.03.22)
@@ -19,8 +21,8 @@ Create a quiz creating system;
 Add a delete quiz button;
 ✓ Done (18.03.22)
 
-Add a login/registration system;
-✓ Done (02.03.22)
+Add a authentication system;
+✓ Done (03.03.22)
 
 Make the timer stop after submitting results;
 
