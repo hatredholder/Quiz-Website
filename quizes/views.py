@@ -1,14 +1,18 @@
 import re
-from django.shortcuts import redirect, render
-from quizes.forms import QuizForm, QuestionForm, AnswerForm
-from .models import Quiz
-from django.views.generic import ListView, CreateView
-from django.views.generic.edit import DeleteView
-from django.http import JsonResponse
-from questions.models import Question, Answer
-from results.models import Result
+
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import JsonResponse
+from django.shortcuts import redirect, render
+from django.views.generic import CreateView, ListView
+from django.views.generic.edit import DeleteView
+from questions.models import Answer, Question
+from results.models import Result
+
+from quizes.forms import AnswerForm, QuestionForm, QuizForm
+
+from .models import Quiz
+
 
 class QuizListView(LoginRequiredMixin, ListView):
     model = Quiz

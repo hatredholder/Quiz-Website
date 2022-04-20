@@ -1,8 +1,8 @@
 import random
-from django.db import models
+
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator
-
+from django.db import models
 
 DIFF_CHOICES = (
     ("easy", "easy"),

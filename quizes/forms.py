@@ -1,5 +1,6 @@
 from django.forms import ModelForm
-from questions.models import Question, Answer
+from questions.models import Answer, Question
+
 from .models import Quiz
 
 
