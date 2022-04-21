@@ -1,6 +1,6 @@
 # Quiz Website
 
-Simple Quiz Website with a timer and an authentication system.
+A simple Quiz Website with a timer and an authentication system.
 
 Functionality: Add a Quiz; Add a Question to a Quiz; Add an Answer to a Question; Delete a Quiz;
 
