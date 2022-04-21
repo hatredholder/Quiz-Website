@@ -1,5 +1,3 @@
-import re
-
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
@@ -109,9 +107,7 @@ def save_quiz_view(request, pk):
         data_.pop('csrfmiddlewaretoken')
 
         for k in data_.keys():
-            print('key: ', k)
             question = Question.objects.get(text=k)
-            print("question", question)
             questions.append(question)
         print("questions", questions)
 
