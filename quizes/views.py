@@ -7,7 +7,7 @@ from django.views.generic.edit import DeleteView
 from questions.models import Answer, Question
 from results.models import Result
 
-from quizes.forms import AnswerForm, QuestionForm, QuizForm
+from quizes.forms import QuestionForm, QuizForm
 
 from .models import Quiz
 
