@@ -23,8 +23,10 @@ class QuizListView(LoginRequiredMixin, ListView):
         form = self.form_class(request.POST)
         if form.is_valid():
             form.save()
+            request.session['errorQuiz'] = False
             return redirect('/')
         else:
+            request.session['errorQuiz'] = True
             return redirect('/')
 
     def get_context_data(self, **kwargs):          

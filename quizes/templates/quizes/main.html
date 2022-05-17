@@ -20,6 +20,11 @@
 
 <!-- Basic Info -->
 <div class="justify-content-center">
+    {% if request.session.errorQuiz %}
+    <div class="alert alert-danger" role="alert">
+        Quiz filled incorrectly. Please try again.  
+    </div>
+    {% endif %}
     Quizes Available: {{quiz_count}}
     <a href="{% url 'quizes:logout-view' %}"  class="btn btn-dark btn-lg mb-1 float-right">
         Logout
