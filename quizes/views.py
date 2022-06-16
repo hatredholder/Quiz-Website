@@ -56,7 +56,6 @@ def question_create_view(request, pk):
         if form.is_valid():
             form = form.save(commit=False)
             form.quiz = q
-            print(form)
             form.save()
             form = QuestionForm()
             return redirect('/')
@@ -99,7 +98,6 @@ def quiz_data_view(request, pk):
 
 @login_required(login_url="authentication:login-view")
 def save_quiz_view(request, pk):
-    print(request.META.get('HTTP_ACCEPT'))
     is_ajax = request.META.get('HTTP_X_REQUESTED_WITH') == 'XMLHttpRequest'
     if is_ajax:
         questions = []
@@ -111,7 +109,6 @@ def save_quiz_view(request, pk):
         for k in data_.keys():
             question = Question.objects.get(text=k)
             questions.append(question)
-        print("questions", questions)
 
         user = request.user
         quiz = Quiz.objects.get(pk=pk)
