@@ -16,15 +16,15 @@ Database: PostgreSQL.
 
 ## To Do/To Add
 
-- [ ] Make the timer stop after submitting results
+- [ ] Make the timer stop after submitting results;
 
-- [x] Create a quiz editing system
+- [x] Create a quiz editing system;
 
-- [x] Create a quiz creating system
+- [x] Create a quiz creating system;
 
-- [x] Add a delete quiz button
+- [x] Add a delete quiz button;
 
-- [x] Add a authentication system
+- [x] Add a authentication system;
 
 
 
