@@ -14,21 +14,18 @@ Backend: Django 4.0, JS.
 
 Database: PostgreSQL.
 
-# To Do/To Add:
+## To Do/To Add
 
-Create a quiz editing system;
-✓ Done (22.03.22)
+- [ ] Make the timer stop after submitting results
 
-Create a quiz creating system;
-✓ Done (20.03.22)
+- [x] Create a quiz editing system
 
-Add a delete quiz button;
-✓ Done (18.03.22)
+- [x] Create a quiz creating system
 
-Add a authentication system;
-✓ Done (03.03.22)
+- [x] Add a delete quiz button
 
-Make the timer stop after submitting results;
+- [x] Add a authentication system
+
 
 
 
